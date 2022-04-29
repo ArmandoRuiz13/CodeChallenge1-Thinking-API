@@ -1,0 +1,22 @@
+{
+  "name": "codechallenge",
+  "version": "1.0.0",
+  "description": "Primer codechallenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArmandoRuiz13/CodeChallenge1-Thinking-API.git"
+  },
+  "author": "Armando Ruiz Anaya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArmandoRuiz13/CodeChallenge1-Thinking-API/issues"
+  },
+  "homepage": "https://github.com/ArmandoRuiz13/CodeChallenge1-Thinking-API#readme",
+  "devDependencies": {
+    "jest": "^28.0.3"
+  }
+}
