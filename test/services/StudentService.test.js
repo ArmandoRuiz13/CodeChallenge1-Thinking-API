@@ -4,7 +4,7 @@ const students = Reader.readJsonFile("visualpartners.json");
 
 describe("Prueba unitaria para StudentService", () =>{
     test("Prueba 1: Verificar estudiantes con certificacion", () => {
-        const explorersInNode = StudentService.filterByCertification(students);
+        const explorersInNode = StudentService.filterByCertification(students,true);
         expect(explorersInNode).not.toBeUndefined();
     });
 });
