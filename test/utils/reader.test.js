@@ -1,4 +1,4 @@
-const Reader = require("./../../lib/utils/Reader");
+const Reader = require("./../../lib/utils/reader");
 
 describe("Prueba unitaria para Reader", () =>{
     test("Prueba 1 Imprime lista de objetos de los estudiantes de visualpartners.json", () => {

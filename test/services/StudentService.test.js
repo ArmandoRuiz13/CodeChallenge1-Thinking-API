@@ -1,5 +1,5 @@
 const StudentService = require("./../../lib/services/StudentService");
-const Reader = require("./../../lib/utils/Reader");
+const Reader = require("./../../lib/utils/reader");
 const students = Reader.readJsonFile("visualpartners.json");
 
 describe("Prueba unitaria para StudentService", () =>{
