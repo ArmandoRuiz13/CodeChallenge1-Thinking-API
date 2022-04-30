@@ -21,7 +21,7 @@
   "homepage": "https://github.com/ArmandoRuiz13/CodeChallenge1-Thinking-API#readme",
   "devDependencies": {
     "eslint": "^8.14.0",
-    "jest": "^28.0.3"
+    "jest": "^26.0.0"
   },
   "dependencies": {
     "express": "^4.18.1"
