@@ -13,4 +13,8 @@ describe("Prueba unitaria para StudentService", () =>{
         expect(StudentsEmails).toContain('Sexton@visualpartnership.xyz');
         expect(StudentsEmails).toContain('Sharlene@visualpartnership.xyz');
     });
+    test("Prueba 3: Recepcion estudiantes dependiendo los creditos", () => {
+        const StudentCredits = StudentService.StudentsWithCreditos(students,500);
+        expect(StudentCredits).not.toBeUndefined();
+    });
 });
