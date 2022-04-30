@@ -9,7 +9,7 @@ describe("Prueba unitaria para StudentController", () =>{
         expect(students).not.toBeUndefined();
     });
     test("Prueba 2: Recepcion estudiantes dependiendo si tienen certificacion true o false", () => {
-        const StudentsEmails = StudentController.GetEmailsStudents(true);
+        const StudentsEmails = StudentController.GetEmailsStudents();
         expect(StudentsEmails).toContain('Todd@visualpartnership.xyz');
         expect(StudentsEmails).toContain('Sexton@visualpartnership.xyz');
         expect(StudentsEmails).toContain('Sharlene@visualpartnership.xyz');
