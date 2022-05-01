@@ -2,10 +2,66 @@
 
 
 ## Dependencias utilizadas:
-- Express: Funciona para crear servidores y asi poder crear endpoints con informacion y recepcion de datos
-devDependecia:
-- eslint: Fixea el codigo, haciendo que tenga algo estandar a prueba de algunos fallos y presentacion futura, como puntos y comas.
-- Jest: Permite la creacion de pruebas para el proyecto, pudiendo ejecutarlas con simples scripts, ademas de su ayuda para la automatizacion en github
+
+#### Node - Proyecto
+Proyecto en Node v16.13.2
+
+Creación del proyecto con el comando  (generando el archivo package.json):
+
+- npm init 
+
+#### Git - Gestión de Versiones
+El proyecto cuenta con gestión de versiones con Git. Creando un repositorio local y un reposotorio Remoto en GitHub.
+
+Cada cambio en el proyecto se puede revisar en los [commits](https://github.com/ArmandoRuiz13/CodeChallenge1-Thinking-API/commits/master).
+
+Nota: En el proyecto tenemos .gitignore para no versionar el folder node_models.
+
+
+#### Jest - Pruebas Unitarias
+El proyecto tiene instalado Jest para la realización de pruebas Unitarias.
+
+Para su instalacion y configuración, se corrieron los siguientes comandos:
+
+- pm install jest@26.0.0 --save
+
+Configuración en package.json para agregar el script para correr jest:
+
+- "test": "node --experimental-vm-modules ./node_modules/jest/bin/jest"
+
+#### Express - API
+El proyeto tiene istalado express para crear la API solicitada.
+
+Comando para instalar express en el proyecto:
+
+- npm install express --save 
+
+Configuración en package.json para agregar el script para correr el API:
+
+- "server": "node ./lib/server.js"
+
+
+#### Linter
+Permite revisar el cógigo para darle estilo mediante reglas automatizadas.
+
+Comando para su instalación:
+
+- npm install eslint --save-dev
+
+Comando para la configuracion, general el archivo .eslintrc.js en el proyecto.
+
+- npm init @eslint/config
+
+Agregar reglas en [.eslintrc.js](https://github.com/ArmandoRuiz13/CodeChallenge1-Thinking-API/blob/master/.eslintrc.js) y scripts de liter en package.json.
+
+ Scripts de linter:
+
+![scripts-linter](https://user-images.githubusercontent.com/99087774/166158160-71a559ef-a9d8-4b7a-a676-fffed5a6f446.PNG)
+
+#### GitHub Actions - Automatización de Pruebas
+Dentro del proyecto se crea el archivo test.yml en la ubicación .github/workflows para automatizar las pruebas en GitHub Actions cuando se realiza un push al repositorio remoto.
+
+[test.yml](https://github.com/ArmandoRuiz13/CodeChallenge1-Thinking-API/blob/master/.github/workflows/test.yml)
 
 ## Proyecto:
 El proyecto cuenta con la estructura basica de un proyecto Nodo
@@ -14,7 +70,32 @@ El proyecto cuenta con la estructura basica de un proyecto Nodo
 - test - Carpeta con todos los archivos test que se hicieron para ejecutar las pruebas de los codigos de la carpeta lib
 - .eslintrc.ls - Archivo creado por eslinter para poder agregar reglas de como queremos fixear nuestro proyecto
 - .Json - Archivos Json con algunos objetos guardados para controlar nuestras configuraciones, y obtener informacion necesaria para utilizar en la api
+### Explicacion con diagramas
 
+```mermaid
+flowchart TD
+    A[.Json] --> B[Reader]
+    B --> C[StudentService]
+    C --> D[StudentController]
+    D--> E[Server]
+```
+```mermaid
+ classDiagram
+     class StudentController{
+          +static getAllStudents()
+          +static GetEmailsStudents()
+          +static GetStudentsUp500credits()
+      }
+      class StudentService{
+          +static filterByCertification(students,certification)
+          +static getEmailStudentsCertification(students,certification)
+          +static StudentsWithCreditos(students,credits)
+      }
+      class Reader{
+          +static static readJsonFile(path)
+      }
+
+```
 ## Explicacion API
 
 La API maneja una carpeta lib donde guardamos los siguientes carpetas, {Controllers,Services,Utils} ademas de un archivo llamado server.js, 
@@ -24,10 +105,16 @@ La API maneja una carpeta lib donde guardamos los siguientes carpetas, {Controll
 - Ahora tenemos el archivo server.js, archivo que nos permite importar primeramente la clase StundentsController, para utilizar todos los metodos ademas de abrir un servidor localhost que se le asigno el puerto 3000, ademas se crearon 3 rutas que al mandar a llamar podremos obtener los datos que esta api tiene como objetivo mostrar
 ## Utilizacion API
 
+#### Consultas:
+
+|Endpoint| URL|Respuesta|
+|:--------|:----------|:----------|
+| "/" | http://localhost:3000/ | Mensaje de Visual Thinking|
+| "/v1/visualpartners" | http://localhost:3000/v1/students | Regresa todos los estudiantes|
+| "/v1/visualpartners/emails/havecertification" | http://localhost:3000/v1/students/emails  | Regresa una lista de todos los email de los estudiantes que tienen Certificaciones|
+| "/v1/visualpartners/credits/:credits"| http://localhost:3000/v1/students/creditos | Regresa todos los estudiantes que tengan más de 500 creditos|
+
 Para la utilizacion de esta API, es atravez de la consola utilizamos el comando __**npm run server**__ y procederemos a entrar a nuestro navegador
 para escribir http://localhost:3000/ esta ruta nos permitira acceder a los mensajes de nuestra api, empezando por recibir un mensaje de bienvenida "Visual Thinking API welcome!"
-- Ahora accediendo a la ruta http://localhost:3000/v1/students ,podremos ver en forma .json los estudiantes que se tienen
-- Accediento a la ruta http://localhost:3000/v1/students/emails ,obtendremos todos los emails de los estudiantes que tengan su certificacion
-- Y por ultimo accediento a la ruta http://localhost:3000/v1/students/creditos ,podremos ver los estudiantes que cuentan con una cantidad mayor a 500 creditos
 Para salir de la api es necesario en la consola presionar "Cntrol + c' despues presionar Y, para despues dar enter y Listo. Ya estas usando esta API
 
